@@ -21,6 +21,13 @@ var_dump($v);
 $to = $btup->Transfer("เลขบชที่จะโอนไปให้","เลขธนาคารดูใน doc");
 var_dump($to);
 
+//เช็ค device id ยังใช้ได้อยู่มั้ย
 $check = $btup->CheckDevice("deviceid เช็คว่ายังใช้ได้มั้ย");
 var_dump($check);
 
+
+
+
+//ลงทะเบียนเครื่องใหม่
+$btup->Register(...);
+$btup->ConfirmOTP(...);
