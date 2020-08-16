@@ -11,7 +11,6 @@ class Banktopup
 
     private $BANKTOPUP_API = 'https://api-v1.banktopup.com';
     public function __construct($license = ""){
-        $this->ch = curl_init();
         $this->license = $license;
     }
     /**
@@ -88,12 +87,15 @@ class Banktopup
             'amount' => $amount,
         ]);
     }
+    public function Summary(){
+        return $this->API("POST","/api/v1/scb/summary",[]);
+    }
     public function Version(){
         return $this->API("POST","/api/v1/scb",[])['result']['version'];
     }
     private function API($method = "",$path = "", $data = []){
 
-
+        $this->ch = curl_init();
         curl_setopt_array($this->ch, [
             CURLOPT_URL => $this->BANKTOPUP_API.$path,
             CURLOPT_RETURNTRANSFER => true,

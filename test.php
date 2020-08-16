@@ -1,6 +1,7 @@
 <?php
 
-require_once 'Banktopup.php ';
+require_once 'Banktopup.php';
+
 
 $btup = new Banktopup("ใส่ license");
 
@@ -8,8 +9,21 @@ $btup->setDeviceid("ใส่ device id");
 $btup->setPin("ใส่ pin");
 $btup->setAccountNo("ใส่เลขบัญชี");
 
+
+//เช็คเงินในบช
+$s = $btup->Summary();
+if ($s['error']['code'] != 100){
+    var_dump($s['error']);
+    exit();
+}
+var_dump($s);
+
 //เช็ครายการ
 $t = $btup->Transactions(7,1,20);
+if ($t['error']['code'] != 100){
+    var_dump($t['error']);
+    exit();
+}
 var_dump($t);
 
 //ตรวจสอบยอดก่อนโอน
