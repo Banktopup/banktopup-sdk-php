@@ -90,6 +90,9 @@ class Banktopup
     public function Summary(){
         return $this->API("POST","/api/v1/scb/summary",[]);
     }
+    public function Eligiblebanks(){
+        return $this->API("POST","/api/v1/scb/eligiblebanks",[]);
+    }
     public function Version(){
         return $this->API("POST","/api/v1/scb",[])['result']['version'];
     }

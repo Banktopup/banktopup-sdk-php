@@ -40,7 +40,9 @@ $check = $btup->CheckDevice("deviceid เช็คว่ายังใช้ไ
 var_dump($check);
 
 
-
+//ดึงข้อมูลธนาคาร
+$elig = $btup->Eligiblebanks();
+var_dump($elig);
 
 //ลงทะเบียนเครื่องใหม่
 $btup->Register(...);
