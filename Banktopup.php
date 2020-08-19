@@ -77,14 +77,14 @@ class Banktopup
         return $this->API("POST","/api/v1/scb/verification",[
             'account_to' => $account_to,
             'bank_code' => $bank_code,
-            'amount' => $amount,
+            'amount' => floatval($amount),
         ]);
     }
     public function Transfer($account_to,$bank_code,$amount){
         return $this->API("POST","/api/v1/scb/transfer",[
             'account_to' => $account_to,
             'bank_code' => $bank_code,
-            'amount' => $amount,
+            'amount' => floatval($amount),
         ]);
     }
     public function Summary(){
